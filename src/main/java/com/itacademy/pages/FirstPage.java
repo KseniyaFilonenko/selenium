@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class FirstPage extends BasePage {
-    @FindBy(xpath = "//p[@class='sc-124al1g-4 eeXMBo']")
+    @FindBy(xpath = "//p[@class='sc-124al1g-4 eeXMBo'][1]")
     private WebElement firstItem;
     @FindBy(xpath = "//button[@class='sc-124al1g-0 jCsgpZ']")
     private WebElement addToCartButton;
-    @FindBy(xpath = "//div[@class='sc-uhudcz-0 iZZGui']")
+    @FindBy(xpath = "//p[@class='sc-124al1g-4 eeXMBo']")
     private List <WebElement> itemsList;
     @FindBy(xpath = "//span[text()='S']")
     private WebElement filterButton;
@@ -39,11 +39,12 @@ public class FirstPage extends BasePage {
                 .map(WebElement::getText)
                 .collect(Collectors.toList());
     }
-    public void addAllItemsToCart() {
+    public void addAllItemsToCart() throws InterruptedException {
         List<WebElement> listOfProductsHomepage = new ArrayList<>(itemsList);
         for (WebElement items : listOfProductsHomepage){
             ((JavascriptExecutor)driver).executeScript("arguments[0].click();", items);
         }
+        Thread.sleep(5000);
     }
     public void clickFilterButton() {
         filterButton.click();

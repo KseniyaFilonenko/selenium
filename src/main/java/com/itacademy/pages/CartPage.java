@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class CartPage extends BasePage{
     @FindBy(xpath = "//p[@class='sc-11uohgb-2 elbkhN']")
     private WebElement itemInCart;
-    @FindBy(xpath = "//div[@class='sc-7th5t8-0 jehOnP']")
+    @FindBy(xpath = "//p[class = 'sc-11uohgb-2 elbkhN']")
     private List <WebElement> itemsListInCart;
     public CartPage(WebDriver driver) {
         super(driver);

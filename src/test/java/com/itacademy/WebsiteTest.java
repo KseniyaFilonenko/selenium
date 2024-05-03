@@ -19,7 +19,7 @@ public class WebsiteTest extends BaseTest {
         Assert.assertEquals(firstPage.getFirstItem().getText(), cartPage.getItemInCart().getText());
     }
     @Test
-    public void listOfItems() {
+    public void listOfItems() throws InterruptedException {
         FirstPage firstPage = new FirstPage(driver);
         firstPage.openUrl();
         List<String> listOfProductsHomepage = firstPage.getItemsList();
