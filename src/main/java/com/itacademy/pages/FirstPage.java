@@ -44,7 +44,7 @@ public class FirstPage extends BasePage {
         for (WebElement items : listOfProductsHomepage){
             ((JavascriptExecutor)driver).executeScript("arguments[0].click();", items);
         }
-        Thread.sleep(5000);
+        Thread.sleep(10000);
     }
     public void clickFilterButton() {
         filterButton.click();
