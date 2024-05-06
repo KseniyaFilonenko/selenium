@@ -7,7 +7,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
-
 public class WebsiteTest extends BaseTest {
     @Test
     public void addToCart() {
@@ -16,7 +15,7 @@ public class WebsiteTest extends BaseTest {
         firstPage.clickAddToCartButton();
         ScreenshotUtils.takeScreenshot(driver);
         CartPage cartPage = new CartPage(driver);
-        Assert.assertEquals(firstPage.getFirstItem().getText(), cartPage.getItemInCart().getText());
+        Assert.assertEquals(firstPage.getFirstItemText(), cartPage.getItemInCartText());
     }
     @Test
     public void listOfItems() throws InterruptedException {

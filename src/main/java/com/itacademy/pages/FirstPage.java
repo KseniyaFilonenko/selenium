@@ -13,10 +13,12 @@ import java.util.stream.Collectors;
 public class FirstPage extends BasePage {
     @FindBy(xpath = "//p[@class='sc-124al1g-4 eeXMBo'][1]")
     private WebElement firstItem;
-    @FindBy(xpath = "//button[@class='sc-124al1g-0 jCsgpZ']")
+    @FindBy(xpath = "//button[text()='Add to cart']")
     private WebElement addToCartButton;
     @FindBy(xpath = "//p[@class='sc-124al1g-4 eeXMBo']")
-    private List <WebElement> itemsList;
+    private List<WebElement> itemsList;
+    @FindBy(xpath = "//*[text()='Add to cart']")
+    private List<WebElement> addToCartItemsList;
     @FindBy(xpath = "//span[text()='S']")
     private WebElement filterButton;
     @FindBy(xpath = "//main[@class='sc-ebmerl-4 iliWeY']")
@@ -31,8 +33,8 @@ public class FirstPage extends BasePage {
     public void clickAddToCartButton() {
         addToCartButton.click();
     }
-    public WebElement getFirstItem() {
-        return firstItem;
+    public String getFirstItemText() {
+        return firstItem.getText();
     }
     public List<String> getItemsList() {
         return itemsList.stream()
@@ -40,11 +42,11 @@ public class FirstPage extends BasePage {
                 .collect(Collectors.toList());
     }
     public void addAllItemsToCart() throws InterruptedException {
-        List<WebElement> listOfProductsHomepage = new ArrayList<>(itemsList);
+        List<WebElement> listOfProductsHomepage = new ArrayList<>(addToCartItemsList);
         for (WebElement items : listOfProductsHomepage){
             ((JavascriptExecutor)driver).executeScript("arguments[0].click();", items);
         }
-        Thread.sleep(10000);
+        Thread.sleep(5000);
     }
     public void clickFilterButton() {
         filterButton.click();
@@ -53,7 +55,6 @@ public class FirstPage extends BasePage {
         return productsFoundLabel;
     }
     public int getProductsQty() {
-        Integer.parseInt(productsFoundLabel.getText().replaceAll("[^\\d]", ""));
-        return 0;
+        return Integer.parseInt(productsFoundLabel.getText().replaceAll("[^\\d]", ""));
     }
 }

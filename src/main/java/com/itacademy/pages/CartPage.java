@@ -9,16 +9,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CartPage extends BasePage{
-    @FindBy(xpath = "//p[@class='sc-11uohgb-2 elbkhN']")
+    @FindBy(xpath = "//p[@class='sc-11uohgb-2 elbkhN'][1]")
     private WebElement itemInCart;
-    @FindBy(xpath = "//p[class = 'sc-11uohgb-2 elbkhN']")
-    private List <WebElement> itemsListInCart;
+    @FindBy(xpath = "//p[@class = 'sc-11uohgb-2 elbkhN']")
+    private List<WebElement> itemsListInCart;
     public CartPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
-    public WebElement getItemInCart() {
-        return itemInCart;
+    public String getItemInCartText() {
+        return itemInCart.getText();
     }
     public List<String> getItemsListInCart() {
         return itemsListInCart.stream()
