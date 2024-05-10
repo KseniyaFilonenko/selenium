@@ -20,7 +20,13 @@ public class FirstPage extends BasePage {
     @FindBy(xpath = "//*[text()='Add to cart']")
     private List<WebElement> addToCartItemsList;
     @FindBy(xpath = "//span[text()='S']")
-    private WebElement filterButton;
+    private WebElement filterButtonS;
+    @FindBy(xpath = "//span[text()='XS']")
+    private WebElement filterButtonXS;
+    @FindBy(xpath = "//span[text()='M']")
+    private WebElement filterButtonM;
+    @FindBy(xpath = "//span[text()='ML']")
+    private WebElement filterButtonML;
     @FindBy(xpath = "//main[@class='sc-ebmerl-4 iliWeY']")
     private WebElement productsFoundLabel;
     public FirstPage(WebDriver driver) {
@@ -49,12 +55,33 @@ public class FirstPage extends BasePage {
         Thread.sleep(5000);
     }
     public void clickFilterButton() {
-        filterButton.click();
+        filterButtonS.click();
     }
     public WebElement getProductsFoundLabel() {
         return productsFoundLabel;
     }
     public int getProductsQty() {
         return Integer.parseInt(productsFoundLabel.getText().replaceAll("[^\\d]", ""));
+    }
+    public void applyFilter(String filterName) throws InterruptedException {
+        WebElement filterButton;
+        switch (filterName) {
+            case "XS":
+                filterButton = filterButtonXS;
+                break;
+            case "S":
+                filterButton = filterButtonS;
+                break;
+            case "M":
+                filterButton = filterButtonM;
+                break;
+            case "ML":
+                filterButton = filterButtonML;
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + filterName);
+        }
+        filterButton.click();
+        Thread.sleep(5000);
     }
 }
