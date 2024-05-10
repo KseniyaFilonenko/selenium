@@ -18,14 +18,6 @@ public class WebsiteTest extends BaseTest {
         CartPage cartPage = new CartPage(driver);
         Assert.assertEquals(firstPage.getFirstItemText(), cartPage.getItemInCartText());
     }
-//    @DataProvider(name = "itemsData")
-//    public Object[][] getData(){
-//        FirstPage firstPage = new FirstPage(driver);
-//        List<String> listOfProductsHomepage = firstPage.getItemsList();
-//        return new Object[][]{
-//                {listOfProductsHomepage}
-//        };
-//    }
     @Test
     public void listOfItems() throws InterruptedException {
         FirstPage firstPage = new FirstPage(driver);
