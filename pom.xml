@@ -71,7 +71,6 @@
       <groupId>com.codeborne</groupId>
       <artifactId>selenide</artifactId>
       <version>7.3.1</version>
-      <scope>test</scope>
     </dependency>
   </dependencies>
   <build>
@@ -81,8 +80,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.13.0</version>
         <configuration>
-          <source>11</source>
-          <target>11</target>
+          <source>21</source>
+          <target>21</target>
         </configuration>
       </plugin>
 
