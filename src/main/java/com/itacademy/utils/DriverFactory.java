@@ -12,7 +12,7 @@ public class DriverFactory {
     public static WebDriver createDriver(String browser) {
         URL url;
         try {
-            url = new URL("http://192.168.100.4:4444");
+            url = new URL("http://localhost:4444");
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
