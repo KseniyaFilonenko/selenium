@@ -19,7 +19,7 @@ public class DriverFactory {
         if (browser.equals("chrome")) {
             ChromeOptions chromeOptions = new ChromeOptions();
             return new RemoteWebDriver(url, chromeOptions);
-        } else if (browser.equals("forefox")) {
+        } else if (browser.equals("firefox")) {
             FirefoxOptions firefoxOptions = new FirefoxOptions();
             return new RemoteWebDriver(url, firefoxOptions);
         }
