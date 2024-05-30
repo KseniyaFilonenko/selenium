@@ -6,6 +6,7 @@
             <class name="com.itacademy.WebsiteTest">
             <methods>
                 <include name="addToCart"/>
+                <include name="filter"/>
                 <include name="filter2"/>
             </methods>
             </class>
